@@ -1,71 +1,75 @@
 import constants.Commands;
 import services.AirLineManager;
+import services.AirlineStatistics;
 import services.FileReaderService;
 
 public class Main {
 
     public static void main(String[] args) {
+
         AirLineManager airLineManager = new AirLineManager();
+        AirlineStatistics airlineStatistics = new AirlineStatistics();
         FileReaderService readerService = new FileReaderService();
+
         String command = readerService.readLine();
 
         while (command != null) {
-            String[] commands = command.split(" ");
+            String[] commandParams = command.split(" ");
 
             Commands action;
             try {
-                action = Commands.valueOf(commands[0]);
+                action = Commands.valueOf(commandParams[0]);
             } catch (IllegalArgumentException e) {
                 action = Commands.INVALID_COMMAND;
             }
 
             switch (action) {
                 case SIGNUP: {
-                    airLineManager.signup(commands);
+                    airLineManager.signup(commandParams);
                     break;
                 }
                 case LOGIN: {
-                    airLineManager.login(commands);
+                    airLineManager.login(commandParams);
                     break;
                 }
                 case LOGOUT: {
-                    airLineManager.logout(commands);
+                    airLineManager.logout(commandParams);
                     break;
                 }
                 case DISPLAY_MY_FLIGHTS: {
-                    airLineManager.displayMyFlights(commands);
+                    airLineManager.displayMyFlights(commandParams);
                     break;
                 }
                 case ADD_FLIGHT: {
-                    airLineManager.addFlight(commands);
+                    airLineManager.addFlight(commandParams);
                     break;
                 }
                 case CANCEL_FLIGHT: {
-                    airLineManager.cancelFlight(commands);
+                    airLineManager.cancelFlight(commandParams);
                     break;
                 }
                 case ADD_FLIGHT_DETAILS: {
-                    airLineManager.addFlightDetails(commands);
+                    airLineManager.addFlightDetails(commandParams);
                     break;
                 }
                 case DELETE_FLIGHT: {
-                    airLineManager.deleteFlight(commands);
+                    airLineManager.deleteFlight(commandParams);
                     break;
                 }
                 case DISPLAY_FLIGHTS: {
-                    airLineManager.displayFlights(commands);
+                    airLineManager.displayFlights(commandParams);
                     break;
                 }
                 case PERSIST_FLIGHTS: {
-                    airLineManager.persistFlights(commands);
+                    airLineManager.persistFlights(commandParams);
                     break;
                 }
                 case PERSIST_USERS: {
-                    airLineManager.persistUsers(commands);
+                    airLineManager.persistUsers(commandParams);
                     break;
                 }
                 case INVALID_COMMAND: {
-                    airLineManager.invalidCommand(commands);
+                    airLineManager.invalidCommand(commandParams);
                     break;
                 }
             }
@@ -74,5 +78,9 @@ public class Main {
 
         // se termina aplicatia -> flush() -> datele sa fie scrise in fisierul de output
         airLineManager.flush();
+
+        // Display statistics
+        AirlineStatistics.findMostUsedCityAsDepartureForFlights(airLineManager);
+        AirlineStatistics.findShortestFlight(airLineManager);
     }
 }

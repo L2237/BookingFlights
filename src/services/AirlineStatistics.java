@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class AirlineStatistics {
-    private static String findMostUsedCityAsDepartureForFlights(AirLineManager airLineManager) {
+    public static String findMostUsedCityAsDepartureForFlights(AirLineManager airLineManager) {
         List<Flight> flights = airLineManager.getFlights();
         System.out.println(flights);
         System.out.println();
@@ -17,14 +17,15 @@ public class AirlineStatistics {
         // denumire pentru map: keyToValue sau valueByKey
         try {
             String city = flights.stream()
-                    .collect(Collectors.groupingBy(flight -> flight.getFrom(), Collectors.counting()))
+                    .collect(Collectors.groupingBy(Flight::getFrom, Collectors.counting()))
                     .entrySet()
                     .stream()
                     .max((entry1, entry2) -> (int) (entry1.getValue() - entry2.getValue()))
                     .get()
                     .getKey();
 
-            System.out.println(city);
+            System.out.println("Most used city as departure flight is: ");
+            System.out.println("    " + city);
 
             return city;
         } catch (NoSuchElementException e) {
@@ -61,8 +62,20 @@ public class AirlineStatistics {
         return null;
     }
 
-    private static Flight findShortestFlight(AirLineManager manager) {
-        return null;
+    public static Flight findShortestFlight(AirLineManager manager) {
+        List<Flight> flights = manager.getFlights();
+        Flight shortestFlight = flights.get(1);
+
+        for(Flight flight: flights) {
+            if(flight.getDuration() < shortestFlight.getDuration()) {
+                shortestFlight = flight;
+            }
+        }
+
+        System.out.println("Shortest flight is: ");
+        System.out.println("    " + shortestFlight);
+
+        return shortestFlight;
     }
 
     private static List<User> findAllUsersWhoTraveledIn(AirLineManager manager, LocalDate date) {
