@@ -1,0 +1,42 @@
+Cannot add user! Password too short!
+
+User with email: ana@gmail.com was successfully added!
+
+User with email: ana@gmail.com is the current user started from 2022-07-27T08:59:40.382524300
+
+Flight from Bucharest to Milano, date 2022-07-11, duration: 2 successfully added!
+The user with email ana@gmail.com already has a ticket for the flight with id 1
+Flight from Bucharest to Paris, date 2022-07-11, duration: 2 successfully added!
+Flight from Bucharest to Italy, date 2022-07-11, duration: 2 successfully added!
+
+Find all the available flights for Ana bellow: 
+    Flight from Bucharest to Milano, date 2022-07-11, duration: 2
+    Flight from Bucharest to Paris, date 2022-07-11, duration: 2
+    Flight from Bucharest to Italy, date 2022-07-11, duration: 2
+
+The flight with id 5 does not exist!
+The user with email ana@gmail.com does not have a ticket for the flight with id 5
+The user with email ana@gmail.com was notified that the flight with id 2 was canceled!
+
+Find all the available flights for Ana bellow: 
+    Flight from Bucharest to Milano, date 2022-07-11, duration: 2
+    Flight from Bucharest to Italy, date 2022-07-11, duration: 2
+
+Cannot add flight! There is already a flight with id = 3
+
+Flight from Timisoara to Budapest, date 2022-08-01, duration: 1 successfully added!
+
+Display all the available flights: 
+    Flight from Bucharest to Milano, date 2022-07-11, duration: 2
+    Flight from Bucharest to Paris, date 2022-07-11, duration: 2
+    Flight from Bucharest to London, date 2022-07-11, duration: 3
+    Flight from Timisoara to Budapest, date 2022-08-01, duration: 1
+
+The flight with id 1 successfully deleted!
+
+Display all the available flights: 
+    Flight from Bucharest to Paris, date 2022-07-11, duration: 2
+    Flight from Bucharest to London, date 2022-07-11, duration: 3
+    Flight from Timisoara to Budapest, date 2022-08-01, duration: 1
+
+Another user is already connected!

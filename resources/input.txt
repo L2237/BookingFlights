@@ -1,0 +1,18 @@
+SIGNUP ana@gmail.com Ana parola parola
+SIGNUP ana@gmail.com Ana parola1234 parola1234
+LOGIN ana@gmail.com parola1234
+ADD_FLIGHT 1 Bucharest Milano 2022-07-11 2
+ADD_FLIGHT 1 Bucharest Milano 2022-07-11 2
+ADD_FLIGHT 2 Bucharest Paris 2022-07-11 2
+ADD_FLIGHT 3 Bucharest Italy 2022-07-11 2
+DISPLAY_MY_FLIGHTS
+CANCEL_FLIGHT 5
+CANCEL_FLIGHT 2
+DISPLAY_MY_FLIGHTS
+ADD_FLIGHT_DETAILS 3 Bucharest London 2022-08-01 3
+ADD_FLIGHT_DETAILS 4 Timisoara Budapest 2022-08-01 1
+DISPLAY_FLIGHTS
+DELETE_FLIGHT 1
+DISPLAY_FLIGHTS
+LOGOUT ana1@gmail.com
+
